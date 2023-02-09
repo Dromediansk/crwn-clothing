@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-import { getCategoriesAndDocuments } from "../utils/firebase.utils.js";
+import { getCategoriesAndDocuments } from "../utils/firebase";
 
 // Actual value you want to access
 export const CategoriesContext = createContext({
