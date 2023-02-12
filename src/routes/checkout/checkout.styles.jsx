@@ -30,3 +30,8 @@ export const Total = styled.span`
   margin-left: auto;
   font-size: 36px;
 `;
+
+export const EmptyMessage = styled.span`
+  font-size: 18px;
+  margin: 40px auto;
+`;

@@ -2,6 +2,7 @@ import CheckoutItem from "../../components/checkout-item/checkout-item.component
 import {
   CheckoutContainer,
   CheckoutHeader,
+  EmptyMessage,
   HeaderBlock,
   Total,
 } from "./checkout.styles";
@@ -34,9 +35,13 @@ const Checkout = () => {
           <span>Remove</span>
         </HeaderBlock>
       </CheckoutHeader>
-      {cartItems.map((cartItem) => (
-        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-      ))}
+      {cartItems.length ? (
+        cartItems.map((cartItem) => (
+          <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+        ))
+      ) : (
+        <EmptyMessage>Your cart is empty</EmptyMessage>
+      )}
       <Total>Total: ${cartTotal}</Total>
     </CheckoutContainer>
   );
