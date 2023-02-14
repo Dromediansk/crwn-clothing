@@ -60,7 +60,7 @@ const Checkout = () => {
         >
           Clear cart
         </Button>
-        <Total>Total: ${cartTotal}</Total>
+        <Total>Total: {cartTotal} €</Total>
       </CheckoutFooterContainer>
       <PaymentForm />
     </CheckoutContainer>

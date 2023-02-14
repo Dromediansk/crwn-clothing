@@ -1,4 +1,9 @@
-import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import {
+  CardElement,
+  PaymentElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectCartTotal } from "../../store/cart/cart.selector";
@@ -60,7 +65,7 @@ const PaymentForm = () => {
     <PaymentFormContainer>
       <FormContainer onSubmit={paymentHandler}>
         <h2>Credit card payment:</h2>
-        <CardElement />
+        <PaymentElement />
         <PaymentButton
           isLoading={isProcessingPayment}
           buttonType={BUTTON_TYPE_CLASSES.inverted}
