@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../../components/button/button.component";
 
 export const CheckoutContainer = styled.div`
   width: 55%;
@@ -25,9 +26,19 @@ export const HeaderBlock = styled.div`
   }
 `;
 
-export const Total = styled.span`
+export const CheckoutFooterContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 30px;
-  margin-left: auto;
+`;
+
+export const ClearCartButton = styled(Button)`
+  color: red;
+`;
+
+export const Total = styled.span`
   font-size: 36px;
 `;
 

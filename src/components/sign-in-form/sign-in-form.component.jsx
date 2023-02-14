@@ -1,25 +1,36 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   emailSignInStart,
   googleSignInStart,
 } from "../../store/user/user.action";
+import { selectCurrentUser } from "../../store/user/user.selector";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import { ButtonsContainer, SignInContainer } from "./sign-in-form.styles";
 
-const defaultEmptyFields = {
+const emptyFormFields = {
   email: "",
   password: "",
 };
 
 const SignInForm = () => {
   const dispatch = useDispatch();
-  const [formFields, setFormFields] = useState(defaultEmptyFields);
+  const navigate = useNavigate();
+  const currentUser = useSelector(selectCurrentUser);
+
+  const [formFields, setFormFields] = useState(emptyFormFields);
   const { email, password } = formFields;
 
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/");
+    }
+  }, [currentUser, navigate]);
+
   const resetFormFields = () => {
-    setFormFields(defaultEmptyFields);
+    setFormFields(emptyFormFields);
   };
 
   const handleChange = (event) => {

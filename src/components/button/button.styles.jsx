@@ -47,6 +47,17 @@ export const InvertedButton = styled(BaseButton)`
   }
 `;
 
+export const DangerButton = styled(BaseButton)`
+  background-color: #fdf2f2;
+  color: red;
+  border: 1px solid #ffcccc;
+  &:hover {
+    background-color: #ffc3c3;
+    color: red;
+    border: none;
+  }
+`;
+
 export const ButtonSpinner = styled(SpinnerContainer)`
   width: 30px;
   height: 30px;
