@@ -2,7 +2,10 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { StripeCardElement } from "@stripe/stripe-js";
 import { FormEvent, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectCartTotal } from "../../store/cart/cart.selector";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/cart/cart.selector";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
 import { BUTTON_TYPE_CLASSES } from "../button/button.component";
@@ -21,6 +24,7 @@ const PaymentForm = () => {
   const elements = useElements();
   const amount = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
+  const cartItems = useSelector(selectCartItems);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const paymentHandler = async (event: FormEvent<HTMLFormElement>) => {
@@ -59,7 +63,7 @@ const PaymentForm = () => {
     setIsProcessingPayment(false);
 
     if (paymentResult.error) {
-      alert(paymentResult.error);
+      alert(paymentResult.error.message);
     } else if (paymentResult.paymentIntent.status === "succeeded") {
       alert("Payment successful");
     }
@@ -73,6 +77,7 @@ const PaymentForm = () => {
         <PaymentButton
           isLoading={isProcessingPayment}
           buttonType={BUTTON_TYPE_CLASSES.inverted}
+          disabled={!cartItems.length}
         >
           Pay now
         </PaymentButton>

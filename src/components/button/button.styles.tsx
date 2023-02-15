@@ -20,7 +20,11 @@ export const BaseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  &:hover {
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  &:not(:disabled):hover {
     background-color: white;
     color: black;
     border: 1px solid black;
@@ -40,7 +44,11 @@ export const InvertedButton = styled(BaseButton)`
   background-color: white;
   color: black;
   border: 1px solid black;
-  &:hover {
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+  &:not(:disabled):hover {
     background-color: black;
     color: white;
     border: none;
