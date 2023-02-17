@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render default button 1`] = `
+<button
+  class="sc-dkrFOg fgcPVe"
+  data-testid="custom-button"
+>
+  Testing button
+</button>
+`;
