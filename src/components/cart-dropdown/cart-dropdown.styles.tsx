@@ -8,11 +8,11 @@ import {
 
 export const CartDropdownContainer = styled.div`
   position: absolute;
-  width: 240px;
+  width: 300px;
   height: 340px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid black;
   background-color: white;
   top: 90px;
@@ -22,7 +22,7 @@ export const CartDropdownContainer = styled.div`
   ${BaseButton},
   ${GoogleSignInButton}, 
   ${InvertedButton} {
-    margin-top: auto;
+    margin-top: 15px;
   }
 `;
 
@@ -32,8 +32,8 @@ export const EmptyMessage = styled.span`
 `;
 
 export const CartItems = styled.div`
-  height: 240px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow: auto;
 `;
