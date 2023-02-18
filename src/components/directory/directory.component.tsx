@@ -9,7 +9,7 @@ export type DirectoryCategory = {
   route: string;
 };
 
-const cateogories = [
+const directoryCategories: DirectoryCategory[] = [
   {
     id: 1,
     title: "hats",
@@ -45,8 +45,11 @@ const cateogories = [
 const Directory = () => {
   return (
     <DirectoryContainer>
-      {cateogories.map((category) => (
-        <DirectoryItem key={category.id} category={category} />
+      {directoryCategories.map((directoryCategory) => (
+        <DirectoryItem
+          key={directoryCategory.id}
+          directoryCategory={directoryCategory}
+        />
       ))}
     </DirectoryContainer>
   );

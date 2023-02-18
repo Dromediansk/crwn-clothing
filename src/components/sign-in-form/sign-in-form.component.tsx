@@ -11,7 +11,12 @@ import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import { SignInContainer, SocialButtonsContainer } from "./sign-in-form.styles";
 
-const emptyFormFields = {
+type SignInFormFields = {
+  email: string;
+  password: string;
+};
+
+const emptyFormFields: SignInFormFields = {
   email: "",
   password: "",
 };

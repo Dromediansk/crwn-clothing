@@ -6,7 +6,14 @@ import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import { SignUpContainer } from "./sign-up-form.styles";
 
-const defaultFormFields = {
+type SignUpFormFields = {
+  displayName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
+const defaultFormFields: SignUpFormFields = {
   displayName: "",
   email: "",
   password: "",
@@ -80,7 +87,7 @@ const SignUpForm = () => {
         />
 
         <FormInput
-          label="Password"
+          label="Confirm password"
           type="password"
           required
           onChange={handleChange}

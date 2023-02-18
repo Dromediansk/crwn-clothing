@@ -8,11 +8,11 @@ import {
 } from "./directory-item.styles";
 
 export type DirectoryItemProps = {
-  category: DirectoryCategory;
+  directoryCategory: DirectoryCategory;
 };
 
-const DirectoryItem: FC<DirectoryItemProps> = ({ category }) => {
-  const { title, imageUrl, route } = category;
+const DirectoryItem: FC<DirectoryItemProps> = ({ directoryCategory }) => {
+  const { title, imageUrl, route } = directoryCategory;
 
   const navigate = useNavigate();
 
