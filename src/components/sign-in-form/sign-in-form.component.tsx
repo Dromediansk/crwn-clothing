@@ -82,7 +82,7 @@ const SignInForm = () => {
         />
         <Button type="submit">Sign in</Button>
 
-        <h3>Or sign in with your account:</h3>
+        <h3>Or sign in with your account</h3>
         <SocialButtonsContainer>
           <Button
             type="button"
