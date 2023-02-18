@@ -10,7 +10,8 @@ export const SignInContainer = styled.div`
   }
 `;
 
-export const ButtonsContainer = styled.div`
+export const SocialButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 5px;
 `;

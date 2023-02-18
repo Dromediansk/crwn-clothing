@@ -20,11 +20,33 @@ export const BaseButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.3s;
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
   &:disabled {
     opacity: 0.3;
     cursor: default;
+    background-color: black;
+    color: white;
+    border: none;
   }
-  &:not(:disabled):hover {
+`;
+
+export const InvertedButton = styled(BaseButton)`
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  &:hover {
+    background-color: black;
+    color: white;
+    border: none;
+  }
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
     background-color: white;
     color: black;
     border: 1px solid black;
@@ -40,17 +62,11 @@ export const GoogleSignInButton = styled(BaseButton)`
   }
 `;
 
-export const InvertedButton = styled(BaseButton)`
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  &:disabled {
-    opacity: 0.3;
-    cursor: default;
-  }
-  &:not(:disabled):hover {
-    background-color: black;
-    color: white;
+export const FacebookSignInButton = styled(BaseButton)`
+  background-color: #4267b2;
+  color: white;
+  &:hover {
+    background-color: #647eb1;
     border: none;
   }
 `;

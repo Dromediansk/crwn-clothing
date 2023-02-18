@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   emailSignInStart,
+  facebookSignInStart,
   googleSignInStart,
 } from "../../store/user/user.action";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
-import { ButtonsContainer, SignInContainer } from "./sign-in-form.styles";
+import { SignInContainer, SocialButtonsContainer } from "./sign-in-form.styles";
 
 const emptyFormFields = {
   email: "",
@@ -54,6 +55,10 @@ const SignInForm = () => {
     dispatch(googleSignInStart());
   };
 
+  const handleSignInWithFacebook = () => {
+    dispatch(facebookSignInStart());
+  };
+
   return (
     <SignInContainer>
       <h2>I already have an account</h2>
@@ -75,16 +80,25 @@ const SignInForm = () => {
           name="password"
           value={password}
         />
-        <ButtonsContainer>
-          <Button type="submit">Sign in</Button>
+        <Button type="submit">Sign in</Button>
+
+        <h3>Or sign in with your account:</h3>
+        <SocialButtonsContainer>
           <Button
             type="button"
             buttonType={BUTTON_TYPE_CLASSES.google}
             onClick={handleSignInWithGoogle}
           >
-            Google sign in
+            Google
           </Button>
-        </ButtonsContainer>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.facebook}
+            onClick={handleSignInWithFacebook}
+          >
+            Facebook
+          </Button>
+        </SocialButtonsContainer>
       </form>
     </SignInContainer>
   );

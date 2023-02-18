@@ -6,6 +6,7 @@ import {
   createUserDocumentFromAuth,
   getCurrentUser,
   signInAuthUserWithEmailAndPassword,
+  signInWithFacebookPopup,
   signInWithGooglePopup,
   signOutUser,
 } from "../../utils/firebase";
@@ -46,6 +47,15 @@ export function* getSnapshotFromUserAuth(
 export function* signInWithGoogle() {
   try {
     const { user } = yield* call(signInWithGooglePopup);
+    yield* call(getSnapshotFromUserAuth, user);
+  } catch (error) {
+    yield* put(signInFailed(error as Error));
+  }
+}
+
+export function* signInWithFacebook() {
+  try {
+    const { user } = yield* call(signInWithFacebookPopup);
     yield* call(getSnapshotFromUserAuth, user);
   } catch (error) {
     yield* put(signInFailed(error as Error));
@@ -120,6 +130,13 @@ export function* onGoogleSignInStart() {
   yield* takeLatest(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
 
+export function* onFacebookSignInStart() {
+  yield* takeLatest(
+    USER_ACTION_TYPES.FACEBOOK_SIGN_IN_START,
+    signInWithFacebook
+  );
+}
+
 export function* onEmailSignInStart() {
   yield* takeLatest(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, signInWithEmail);
 }
@@ -144,6 +161,7 @@ export function* userSaga() {
   yield* all([
     call(onCheckUserSession),
     call(onGoogleSignInStart),
+    call(onFacebookSignInStart),
     call(onEmailSignInStart),
     call(onSignUpStart),
     call(onSignUpSuccess),

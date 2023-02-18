@@ -2,7 +2,7 @@
 
 exports[`should render default button 1`] = `
 <button
-  class="sc-dkrFOg fgcPVe"
+  class="sc-dkrFOg iMajiH"
   data-testid="custom-button"
 >
   Testing button
