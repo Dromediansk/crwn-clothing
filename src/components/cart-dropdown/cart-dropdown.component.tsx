@@ -25,16 +25,22 @@ const CartDropdown = () => {
     dispatch(setIsCartOpen(!isCartOpen));
   };
 
+  const isCartEmpty = cartItems.length === 0;
+
   return (
     <CartDropdownContainer>
       <CartItems>
-        {cartItems.length ? (
-          cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
-        ) : (
+        {isCartEmpty ? (
           <EmptyMessage>Your cart is empty</EmptyMessage>
+        ) : (
+          cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
         )}
       </CartItems>
-      <Button data-testid="navigate-button" onClick={goToCheckoutHandler}>
+      <Button
+        disabled={isCartEmpty}
+        data-testid="navigate-button"
+        onClick={goToCheckoutHandler}
+      >
         Go to checkout
       </Button>
     </CartDropdownContainer>

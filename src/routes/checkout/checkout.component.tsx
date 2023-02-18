@@ -18,6 +18,8 @@ import Button, {
 } from "../../components/button/button.component";
 import { clearAllCartItems } from "../../store/cart/cart.action";
 
+const headerBlocks = ["Product", "Description", "Quantity", "Price", "Remove"];
+
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
@@ -30,21 +32,11 @@ const Checkout = () => {
   return (
     <CheckoutContainer>
       <CheckoutHeader>
-        <HeaderBlock>
-          <span>Product</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Description</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Quantity</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Price</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Remove</span>
-        </HeaderBlock>
+        {headerBlocks.map((block) => (
+          <HeaderBlock key={block}>
+            <span>{block}</span>
+          </HeaderBlock>
+        ))}
       </CheckoutHeader>
       {cartItems.length ? (
         cartItems.map((cartItem) => (

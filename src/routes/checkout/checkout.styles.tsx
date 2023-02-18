@@ -43,6 +43,6 @@ export const Total = styled.span`
 `;
 
 export const EmptyMessage = styled.span`
-  font-size: 18px;
+  font-size: 20px;
   margin: 40px auto;
 `;
